@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+<XPD:PROFILE>UMLStandard</XPD:PROFILE>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="CEyVz/iT00yKtRxp2GPTNwAA">
+<XPD:ATTR name="Title" type="string">MailSender</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">3</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLSubsystem" guid="uuheku8MdECiRN+VrW8YjgAA">
+<XPD:ATTR name="Name" type="string">Subsistema</XPD:ATTR>
+<XPD:REF name="Namespace">CEyVz/iT00yKtRxp2GPTNwAA</XPD:REF>
+<XPD:ATTR name="#OwnedElements" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLPackage" guid="rcCFRz/kd0iPy0T8t7JpeQAA">
+<XPD:ATTR name="Name" type="string">DiagramaSecuencia</XPD:ATTR>
+<XPD:REF name="Namespace">uuheku8MdECiRN+VrW8YjgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[1]" type="UMLPackage" guid="bd7nJ/TT6EyNLelvaHOf/QAA">
+<XPD:ATTR name="Name" type="string">DiagramaClases</XPD:ATTR>
+<XPD:REF name="Namespace">uuheku8MdECiRN+VrW8YjgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[1]" type="UMLModel" guid="s/PsFBaAPkSQqUOi/WrjvAAA">
+<XPD:ATTR name="Name" type="string">Prueba</XPD:ATTR>
+<XPD:REF name="Namespace">CEyVz/iT00yKtRxp2GPTNwAA</XPD:REF>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLPackage" guid="vH9NCdniZkm5RlTlapfkPQAA">
+<XPD:ATTR name="Name" type="string">DiagramaClases</XPD:ATTR>
+<XPD:REF name="Namespace">s/PsFBaAPkSQqUOi/WrjvAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[2]" type="UMLModel" guid="tGhvkr7oFkq3s5xCQPAZ1wAA">
+<XPD:ATTR name="Name" type="string">Proyecto</XPD:ATTR>
+<XPD:REF name="Namespace">CEyVz/iT00yKtRxp2GPTNwAA</XPD:REF>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLPackage" guid="ocmWPtJq90qagTJ1PIFyCwAA">
+<XPD:ATTR name="Name" type="string">DiagramaClases</XPD:ATTR>
+<XPD:REF name="Namespace">tGhvkr7oFkq3s5xCQPAZ1wAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>
