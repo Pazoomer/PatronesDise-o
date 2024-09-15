@@ -18,6 +18,10 @@ public class MailSenderApache extends MailSenderStrategy {
 
     @Override
     public boolean sendEmail(String remitente, String asunto, String mensaje, String emisor) {
+        
+        System.out.println("Enviando mensaje con apache");
+        System.out.println(configuracion);
+        
         org.apache.commons.mail.Email email = new HtmlEmail();
         try {
             

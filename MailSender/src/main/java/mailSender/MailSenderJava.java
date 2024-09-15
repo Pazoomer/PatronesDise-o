@@ -27,6 +27,8 @@ public class MailSenderJava extends MailSenderStrategy {
     @Override
     public boolean sendEmail(String remitente, String asunto, String mensaje, String emisor) {
 
+        System.out.println("Enviando mensaje con java");
+        System.out.println(configuracion);
         
         String puerto=String.valueOf(configuracion.getPort());
         

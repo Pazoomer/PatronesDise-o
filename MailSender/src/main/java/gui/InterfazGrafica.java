@@ -15,9 +15,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
     public boolean listo;
     SubsistemaMailSender mailSender=new ConectorMailSender();
     
-    public InterfazGrafica() {
+    public InterfazGrafica(Usuario usuario) {
         initComponents();
-        lblListo.setVisible(false);
+        this.usuario=usuario;
+        this.txjEmisor.setText(usuario.getUsername());
+        jLabel6.setVisible(false);
     }
     
     public void enviar(){
@@ -37,32 +39,42 @@ public class InterfazGrafica extends javax.swing.JFrame {
             password=usuario.SengridPassword;
         }else{
             
+            protocol="SMTP";
+            
             if (this.rdJava.isSelected()){
                 server="java.mail.Api";
             }else{
                 server="Apache.Commnos.Mail";
             }
-            
-            if (this.rdGmail.isSelected()){
-                host="smtp.gmail.com";
-                password=usuario.GmailPassword;
-            }else{
-                host="smtp.office365.com";
-                password=usuario.OutlookPassword;
+
+            if (this.rdGmail.isSelected()) {
+                host = "smtp.gmail.com";
+                password = usuario.GmailPassword;
+
+                if (this.rdSSL.isSelected()) {
+                    encryption = "mail.smtp.ssl.enable";
+                    port = 465;
+                } else {
+                    encryption = "mail.smtp.starttls.enable";
+                    port = 587;
+                }
+            } else {
+                host = "smtp.office365.com";
+                password = usuario.OutlookPassword;
+                encryption = "mail.smtp.starttls.enable";
+                port = 587;
             }
-            
-            if (this.rdSSL.isSelected()){
-                encryption="mail.smtp.ssl.enable";
-                port=465;
-            }else{
-                encryption="mail.smtp.starttls.enable";
-                port=587;
-            }
-            
+
         }
         
-        mailSender.enviarCorreo(this.txjEmisor.getText(), this.txjDestinatario.getText(), this.txjAsunto.getText(),
-                this.txjMensaje.getText(), protocol, server, host, encryption, password, port);
+        JOptionPane.showMessageDialog(this, "Enviando mensaje, por favor espere", "Esperando", JOptionPane.INFORMATION_MESSAGE);
+        
+        if(mailSender.enviarCorreo(this.txjEmisor.getText(), this.txjDestinatario.getText(), this.txjAsunto.getText(),
+                this.txjMensaje.getText(), protocol, server, host, encryption, password, port)){
+            JOptionPane.showMessageDialog(this, "Correo enviado exitosamente", "Exito", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(this, "No se pudo enviar el correo", "Error", JOptionPane.ERROR_MESSAGE);
+        }
         
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -98,7 +110,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
-        lblListo = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -125,12 +137,15 @@ public class InterfazGrafica extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Destinatario");
 
+        txjDestinatario.setText("pruebapatrones@gmail.com");
+
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Mensaje");
 
         txjMensaje.setColumns(20);
         txjMensaje.setRows(5);
+        txjMensaje.setText("Hola mundo");
         jScrollPane1.setViewportView(txjMensaje);
 
         btnEnviar.setText("Enviar");
@@ -139,6 +154,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 btnEnviarActionPerformed(evt);
             }
         });
+
+        txjAsunto.setText("Probando");
 
         jLabel5.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -166,7 +183,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnEnviar)
-                .addGap(20, 20, 20))
+                .addGap(19, 19, 19))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,10 +203,10 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnEnviar)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.LINE_START);
@@ -269,9 +286,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
             }
         });
 
-        lblListo.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        lblListo.setForeground(new java.awt.Color(153, 255, 153));
-        lblListo.setText("Configuracion Seleccionada");
+        jLabel6.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(153, 255, 153));
+        jLabel6.setText("Configuracion Seleccionada");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -313,7 +330,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblListo)
+                .addComponent(jLabel6)
                 .addGap(50, 50, 50))
         );
         jPanel3Layout.setVerticalGroup(
@@ -346,7 +363,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66)
-                .addComponent(lblListo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(73, Short.MAX_VALUE))
         );
 
@@ -383,7 +400,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
             if(rdSMTP.isSelected())
             {
-                lblListo.setVisible(false);
+                jLabel6.setVisible(false);
                 rdJava.setEnabled(true);
                 rdApache.setEnabled(true);
             }
@@ -412,7 +429,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 rdSSL.setEnabled(false);
                 rdStar.setEnabled(false);
                 
-                lblListo.setVisible(true);
+                jLabel6.setVisible(true);
                 listo=true;
             }
     }//GEN-LAST:event_rdSendgridActionPerformed
@@ -436,13 +453,13 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_rdOutlookActionPerformed
 
     private void rdSSLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdSSLActionPerformed
-        lblListo.setVisible(true);
+        jLabel6.setVisible(true);
         listo=true;
     }//GEN-LAST:event_rdSSLActionPerformed
 
     private void rdStarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdStarActionPerformed
 
-        lblListo.setVisible(true);
+        jLabel6.setVisible(true);
         listo=true;
     }//GEN-LAST:event_rdStarActionPerformed
 
@@ -461,6 +478,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -469,7 +487,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JLabel lblListo;
     private javax.swing.JRadioButton rdApache;
     private javax.swing.JRadioButton rdGmail;
     private javax.swing.JRadioButton rdJava;

@@ -37,6 +37,6 @@ public class ConectorMailSender implements SubsistemaMailSender {
 
         // Enviar el correo y retornar el resultado
         return mailSender.sendEmail();
-    }    
-    
+    }
+
 }

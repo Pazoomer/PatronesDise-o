@@ -23,6 +23,9 @@ public class MailSenderSengrid extends MailSenderStrategy {
     @Override
     public boolean sendEmail(String remitente, String asunto, String mensaje, String emisor) {
 
+        System.out.println("Enviando mensaje con sengrid");
+        System.out.println(configuracion);
+        
         com.sendgrid.helpers.mail.objects.Email from = new com.sendgrid.helpers.mail.objects.Email(emisor);
         com.sendgrid.helpers.mail.objects.Email to = new com.sendgrid.helpers.mail.objects.Email(remitente);
         Content content = new Content("text/plain", mensaje);
@@ -38,10 +41,16 @@ public class MailSenderSengrid extends MailSenderStrategy {
             System.out.println(response.getStatusCode());
             System.out.println(response.getBody());
             System.out.println(response.getHeaders());
+
+            // Verifica si el código de estado es 200 o 202 para considerar el envío exitoso
+            if (response.getStatusCode() == 200 || response.getStatusCode() == 202) {
+                return true;
+            } else {
+                return false;
+            }
         } catch (IOException ex) {
             return false;
         }
-        return true;
     }
     
 }

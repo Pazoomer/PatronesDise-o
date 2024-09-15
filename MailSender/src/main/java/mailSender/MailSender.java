@@ -3,7 +3,6 @@ package mailSender;
 
 import builder.Builder;
 import mailConfig.MailConfig;
-import mailConfig.MailConfig.MailConfigBuilder;
 
 /**
  *
@@ -22,14 +21,14 @@ public class MailSender {
 
         if (mecanismo != null && remitente != null && asunto != null && mensaje != null && emisor != null) {
             // Llamar al método sendEmail de la estrategia
-            mecanismo.sendEmail(remitente, asunto, mensaje, emisor);
-            return true;
+            return mecanismo.sendEmail(remitente, asunto, mensaje, emisor);
         }
         return false; // Devuelve false si falta algún dato
 
     }
 
     private MailSender(MailSenderBuilder builder) {
+        System.out.println(builder.mecanismo);
         this.mecanismo = builder.mecanismo;
         this.emisor = builder.emisor;
         this.remitente = builder.remitente;

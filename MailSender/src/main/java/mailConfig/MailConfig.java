@@ -52,6 +52,22 @@ public class MailConfig {
         return protocol;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("MailConfig{");
+        sb.append("encryption=").append(encryption);
+        sb.append(", host=").append(host);
+        sb.append(", port=").append(port);
+        sb.append(", password=").append(password);
+        sb.append(", protocol=").append(protocol);
+        sb.append(", server=").append(server);
+        sb.append('}');
+        return sb.toString();
+    }
+    
+    
+
     // Clase interna 'MailConfigBuilder'
     public static class MailConfigBuilder {
 

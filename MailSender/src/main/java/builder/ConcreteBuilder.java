@@ -18,9 +18,9 @@ public class ConcreteBuilder extends Builder {
         // Construir una instancia de la estrategia de correo utilizando la configuración proporcionada
         if (configuracion.getProtocol().equalsIgnoreCase("Sengrid")) {
             this.mailSender = new MailSenderSengrid(configuracion);
-        } else if (configuracion.getProtocol().equalsIgnoreCase("Java")) {
+        } else if (configuracion.getServer().equalsIgnoreCase("java.mail.Api")) {
             this.mailSender = new MailSenderJava(configuracion);
-        } else if (configuracion.getProtocol().equalsIgnoreCase("Apache")) {
+        } else if (configuracion.getServer().equalsIgnoreCase("Apache.Commnos.Mail")) {
             this.mailSender = new MailSenderApache(configuracion);
         }
         // Retornar true si la estrategia fue creada correctamente
