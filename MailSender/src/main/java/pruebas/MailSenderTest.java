@@ -13,7 +13,7 @@ import org.apache.commons.mail.HtmlEmail;
  *
  * @author t1pas
  */
-public class MailSender {
+public class MailSenderTest {
 
     public static void main(String[] args) {
     
