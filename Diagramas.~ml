@@ -1156,7 +1156,7 @@
 <XPD:ATTR name="Text" type="string">Builder</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="Fz5DeDN0D0SYPpuTdXcDOQAA">
-<XPD:ATTR name="Text" type="string">&lt;&lt;interface&gt;&gt;</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">&lt;&lt;abstract&gt;&gt;</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="PropertyLabel" type="LabelView" guid="/mTQa9clWk+PQyTc+WNPcwAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -1900,7 +1900,7 @@
 <XPD:ATTR name="#Associations" type="integer">2</XPD:ATTR>
 <XPD:REF name="Associations[0]">ovp7ecfi+kWS+UVmgoja7AAA</XPD:REF>
 <XPD:REF name="Associations[1]">gqj7lXtA1EyX1PDrF5+wbwAA</XPD:REF>
-<XPD:ATTR name="#Attributes" type="integer">7</XPD:ATTR>
+<XPD:ATTR name="#Attributes" type="integer">8</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="tVvQ+qb1K0K2goyIVqLttwAA">
 <XPD:ATTR name="Name" type="string">emisor</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">String</XPD:ATTR>
@@ -1934,6 +1934,11 @@
 <XPD:OBJ name="Attributes[6]" type="UMLAttribute" guid="Esms4X1DAEyOSS3GzAAVeQAA">
 <XPD:ATTR name="Name" type="string">encryption</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">string</XPD:ATTR>
+<XPD:REF name="Owner">Oxq0HVJZb06dxx+qehaWogAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[7]" type="UMLAttribute" guid="0diHsayz7ki34BSj9fIjFgAA">
+<XPD:ATTR name="Name" type="string">password</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">String</XPD:ATTR>
 <XPD:REF name="Owner">Oxq0HVJZb06dxx+qehaWogAA</XPD:REF>
 </XPD:OBJ>
 <XPD:ATTR name="#Instances" type="integer">1</XPD:ATTR>
@@ -2227,7 +2232,7 @@
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[30]" type="UMLClass" guid="lE9OKG55qEGHgNVheqyOhgAA">
 <XPD:ATTR name="Name" type="string">Builder</XPD:ATTR>
-<XPD:ATTR name="StereotypeName" type="string">interface</XPD:ATTR>
+<XPD:ATTR name="StereotypeName" type="string">abstract</XPD:ATTR>
 <XPD:REF name="Namespace">iw1wxPcURU2I4pzrvN+T/wAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">pQBOTDPtjEiknOR0A3Bz2gAA</XPD:REF>
